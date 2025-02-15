@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer("Data Source=DESKTOP-5UV4NJ3;Initial Catalog=DESAFIO;Integrated Security=True;Trust Server Certificate=True");
 });
 
 var app = builder.Build();

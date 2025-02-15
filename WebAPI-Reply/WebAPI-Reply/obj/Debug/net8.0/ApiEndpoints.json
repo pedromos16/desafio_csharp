@@ -1,15 +1,99 @@
 [
   {
-    "ContainingType": "WebAPI_Reply.Controllers.SuperHeroController",
-    "Method": "GetAllHeros",
-    "RelativePath": "api/SuperHero",
+    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
+    "Method": "AddProject",
+    "RelativePath": "api/Projetos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projeto",
+        "Type": "WebAPI_Reply.Entities.Projetos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
+    "Method": "UpdateProject",
+    "RelativePath": "api/Projetos",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateProjeto",
+        "Type": "WebAPI_Reply.Entities.Projetos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
+    "Method": "DeleteProject",
+    "RelativePath": "api/Projetos",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
+    "Method": "GetProject",
+    "RelativePath": "api/Projetos/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.SuperHero, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "WebAPI_Reply.Entities.Projetos",
         "MediaTypes": [
           "text/plain",
           "application/json",

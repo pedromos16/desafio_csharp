@@ -10,6 +10,6 @@ namespace WebAPI_Reply.Data
             
         }
 
-        public DbSet<Projetos> Projetos2 {  get; set; }
+        public DbSet<Projetos> Projetos {  get; set; }
     }
 }
