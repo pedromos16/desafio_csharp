@@ -17,6 +17,15 @@ namespace WebAPI_Reply.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<Projetos>>> GetAllProjects()
+        {
+            var projetos = await _context.Projetos.ToListAsync();
+            return Ok(projetos);
+        }
+
+
+
         [HttpGet("{Id}")]
         public async Task<ActionResult<Projetos>> GetProject(int Id)
         {
