@@ -13,6 +13,5 @@ namespace WebAPI_Reply.Entities
         public string Responsavel { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
 
-        public Projetos Projetos { get; set; }
     }
 }

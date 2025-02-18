@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAPI_Reply.Data;
+using WebAPI_Reply.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IRepository<Projetos>, ProjetoRepository>();
+builder.Services.AddScoped<IRepository<Tarefas>, TarefaRepository>();
+builder.Services.AddScoped<IRepository<Usuarios>, UsuarioRepository>();
+builder.Services.AddScoped<IRepository<Equipes>, EquipeRepository>();
+
+
 builder.Services.AddDbContext<DataContext>(options => {
-    options.UseSqlServer("Data Source=DESKTOP-5UV4NJ3;Initial Catalog=DESAFIO;Integrated Security=True;Trust Server Certificate=True");
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();

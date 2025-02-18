@@ -1,7 +1,7 @@
 [
   {
-    "ContainingType": "WebAPI_Reply.Controllers.EquipesController",
-    "Method": "GetEquipes",
+    "ContainingType": "EquipesController",
+    "Method": "GetAll",
     "RelativePath": "api/Equipes",
     "HttpMethod": "GET",
     "IsController": true,
@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Equipes, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI_Reply.Entities.Equipes, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,8 +20,8 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.EquipesController",
-    "Method": "AddEquipe",
+    "ContainingType": "EquipesController",
+    "Method": "Create",
     "RelativePath": "api/Equipes",
     "HttpMethod": "POST",
     "IsController": true,
@@ -36,8 +36,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.EquipesController",
-    "Method": "UpdateEquipe",
+    "ContainingType": "EquipesController",
+    "Method": "Update",
     "RelativePath": "api/Equipes",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -52,15 +52,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.EquipesController",
-    "Method": "GetEquipe",
-    "RelativePath": "api/Equipes/{Id}",
+    "ContainingType": "EquipesController",
+    "Method": "GetById",
+    "RelativePath": "api/Equipes/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -78,15 +78,15 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.EquipesController",
-    "Method": "DeleteEquipe",
-    "RelativePath": "api/Equipes/{Id}",
+    "ContainingType": "EquipesController",
+    "Method": "Delete",
+    "RelativePath": "api/Equipes/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -94,8 +94,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
-    "Method": "GetAllProjects",
+    "ContainingType": "ProjetosController",
+    "Method": "GetAll",
     "RelativePath": "api/Projetos",
     "HttpMethod": "GET",
     "IsController": true,
@@ -103,7 +103,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -114,8 +114,8 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
-    "Method": "AddProject",
+    "ContainingType": "ProjetosController",
+    "Method": "Create",
     "RelativePath": "api/Projetos",
     "HttpMethod": "POST",
     "IsController": true,
@@ -127,80 +127,34 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
-    "Method": "UpdateProject",
+    "ContainingType": "ProjetosController",
+    "Method": "Update",
     "RelativePath": "api/Projetos",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updateProjeto",
+        "Name": "projeto",
         "Type": "WebAPI_Reply.Entities.Projetos",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
-    "Method": "DeleteProject",
-    "RelativePath": "api/Projetos",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Projetos, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPI_Reply.Controllers.ProjetosController",
-    "Method": "GetProject",
-    "RelativePath": "api/Projetos/{Id}",
+    "ContainingType": "ProjetosController",
+    "Method": "GetById",
+    "RelativePath": "api/Projetos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -218,8 +172,24 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.TarefasController",
-    "Method": "GetAllTarefas",
+    "ContainingType": "ProjetosController",
+    "Method": "Delete",
+    "RelativePath": "api/Projetos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefasController",
+    "Method": "GetAll",
     "RelativePath": "api/Tarefas",
     "HttpMethod": "GET",
     "IsController": true,
@@ -227,7 +197,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Tarefas, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI_Reply.Entities.Tarefas, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -238,8 +208,8 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.TarefasController",
-    "Method": "AddTarefa",
+    "ContainingType": "TarefasController",
+    "Method": "Create",
     "RelativePath": "api/Tarefas",
     "HttpMethod": "POST",
     "IsController": true,
@@ -251,35 +221,41 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Tarefas, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.TarefasController",
-    "Method": "UpdateTarefas",
+    "ContainingType": "TarefasController",
+    "Method": "Update",
     "RelativePath": "api/Tarefas",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updateTarefas",
+        "Name": "tarefa",
         "Type": "WebAPI_Reply.Entities.Tarefas",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefasController",
+    "Method": "GetById",
+    "RelativePath": "api/Tarefas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Tarefas, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "WebAPI_Reply.Entities.Tarefas",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -290,34 +266,24 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.TarefasController",
-    "Method": "DeleteTarefa",
-    "RelativePath": "api/Tarefas",
+    "ContainingType": "TarefasController",
+    "Method": "Delete",
+    "RelativePath": "api/Tarefas/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Tarefas, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.UsuariosController",
-    "Method": "GetUsuarios",
+    "ContainingType": "UsuariosController",
+    "Method": "GetAll",
     "RelativePath": "api/Usuarios",
     "HttpMethod": "GET",
     "IsController": true,
@@ -325,7 +291,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebAPI_Reply.Entities.Usuarios, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebAPI_Reply.Entities.Usuarios, WebAPI-Reply, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -336,8 +302,8 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.UsuariosController",
-    "Method": "AddUsuario",
+    "ContainingType": "UsuariosController",
+    "Method": "Create",
     "RelativePath": "api/Usuarios",
     "HttpMethod": "POST",
     "IsController": true,
@@ -352,8 +318,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.UsuariosController",
-    "Method": "UpdateUsuario",
+    "ContainingType": "UsuariosController",
+    "Method": "Update",
     "RelativePath": "api/Usuarios",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -368,15 +334,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.UsuariosController",
-    "Method": "GetUsuario",
-    "RelativePath": "api/Usuarios/{Id}",
+    "ContainingType": "UsuariosController",
+    "Method": "GetById",
+    "RelativePath": "api/Usuarios/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -394,15 +360,15 @@
     ]
   },
   {
-    "ContainingType": "WebAPI_Reply.Controllers.UsuariosController",
-    "Method": "DeleteUsuario",
-    "RelativePath": "api/Usuarios/{Id}",
+    "ContainingType": "UsuariosController",
+    "Method": "Delete",
+    "RelativePath": "api/Usuarios/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }

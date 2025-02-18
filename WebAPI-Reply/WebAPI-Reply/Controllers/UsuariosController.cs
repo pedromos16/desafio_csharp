@@ -1,72 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebAPI_Reply.Data;
 using WebAPI_Reply.Entities;
 
-namespace WebAPI_Reply.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class UsuariosController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsuariosController : ControllerBase
+    private readonly IRepository<Usuarios> _repository;
+
+    public UsuariosController(IRepository<Usuarios> repository)
     {
-        private readonly DataContext _context;
+        _repository = repository;
+    }
 
-        public UsuariosController(DataContext context)
-        {
-            _context = context;
-        }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Usuarios>>> GetAll()
+    {
+        return Ok(await _repository.GetAllAsync());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Usuarios>>> GetUsuarios()
-        {
-            return Ok(await _context.Usuarios.ToListAsync());
-        }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Usuarios>> GetById(int id)
+    {
+        var usuario = await _repository.GetByIdAsync(id);
+        if (usuario is null) 
+            return NotFound();
+        return Ok(usuario);
+    }
 
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<Usuarios>> GetUsuario(int Id)
-        {
-            var usuario = await _context.Usuarios.FindAsync(Id);
-            if (usuario is null)
-                return NotFound("Usuário não encontrado");
+    [HttpPost]
+    public async Task<IActionResult> Create(Usuarios usuario)
+    {
+        await _repository.AddAsync(usuario);
+        return Ok();
+    }
 
-            return Ok(usuario);
-        }
+    [HttpPut]
+    public async Task<IActionResult> Update(Usuarios usuario)
+    {
+        await _repository.UpdateAsync(usuario);
+        return Ok();
+    }
 
-        [HttpPost]
-        public async Task<ActionResult> AddUsuario(Usuarios usuario)
-        {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
-            return Ok();
-        }
-
-        [HttpPut]
-        public async Task<ActionResult> UpdateUsuario(Usuarios usuario)
-        {
-            var user = await _context.Usuarios.FindAsync(usuario.Id);
-            if (user is null)
-                return NotFound("Usuário não encontrado");
-
-            user.Nome = usuario.Nome;
-            user.Email = usuario.Email;
-            user.Telefone = usuario.Telefone;
-            user.Cargo = usuario.Cargo;
-
-            await _context.SaveChangesAsync();
-            return Ok();
-        }
-
-        [HttpDelete("{Id}")]
-        public async Task<ActionResult> DeleteUsuario(int Id)
-        {
-            var user = await _context.Usuarios.FindAsync(Id);
-            if (user is null)
-                return NotFound("Usuário não encontrado");
-
-            _context.Usuarios.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _repository.DeleteAsync(id);
+        return Ok();
     }
 }

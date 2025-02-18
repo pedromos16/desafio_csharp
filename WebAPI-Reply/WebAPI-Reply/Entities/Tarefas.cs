@@ -13,6 +13,5 @@ namespace WebAPI_Reply.Entities
         public string? Descricao { get; set; }
         public string Status { get; set; }  = string.Empty;
 
-        public Projetos Projetos { get; set; }
     }
 }

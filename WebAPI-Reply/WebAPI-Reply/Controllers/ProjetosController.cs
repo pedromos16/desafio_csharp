@@ -1,79 +1,50 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebAPI_Reply.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebAPI_Reply.Entities;
 
-namespace WebAPI_Reply.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class ProjetosController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProjetosController : ControllerBase
+    private readonly IRepository<Projetos> _repository;
+
+    public ProjetosController(IRepository<Projetos> repository)
     {
-        private readonly DataContext _context;
+        _repository = repository;
+    }
 
-        public ProjetosController(DataContext context)
-        {
-            _context = context;
-        }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Projetos>>> GetAll()
+    {
+        return Ok(await _repository.GetAllAsync());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Projetos>>> GetAllProjects()
-        {
-            var projetos = await _context.Projetos.ToListAsync();
-            return Ok(projetos);
-        }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Projetos>> GetById(int id)
+    {
+        var projeto = await _repository.GetByIdAsync(id);
+        if (projeto is null) 
+            return NotFound();
+        return Ok(projeto);
+    }
 
+    [HttpPost]
+    public async Task<IActionResult> Create(Projetos projeto)
+    {
+        await _repository.AddAsync(projeto);
+        return Ok();
+    }
 
+    [HttpPut]
+    public async Task<IActionResult> Update(Projetos projeto)
+    {
+        await _repository.UpdateAsync(projeto);
+        return Ok();
+    }
 
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<Projetos>> GetProject(int Id)
-        {
-            var projeto = await _context.Projetos.FindAsync(Id);
-            if (projeto is null)
-                return NotFound("Projeto nao encontrado");
-
-            return Ok(projeto);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<List<Projetos>>> AddProject(Projetos projeto)
-        {
-             _context.Projetos.Add(projeto);
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
-
-        [HttpPut]
-        public async Task<ActionResult<List<Projetos>>> UpdateProject(Projetos updateProjeto)
-        {
-            var projeto = await _context.Projetos.FindAsync(updateProjeto.Id);
-            if (projeto is null)
-                return NotFound("Projeto nao encontrado");
-
-            projeto.Nome = updateProjeto.Nome;
-            projeto.Descricao = updateProjeto.Descricao;
-            projeto.DataFim = updateProjeto.DataFim;
-            projeto.DataInicio = updateProjeto.DataInicio;
-
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult<List<Projetos>>> DeleteProject(int Id)
-        {
-            var projeto = await _context.Projetos.FindAsync(Id);
-            if (projeto is null)
-                return NotFound("Projeto nao encontrado");
-
-            _context.Projetos.Remove(projeto);
-
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _repository.DeleteAsync(id);
+        return Ok();
     }
 }
