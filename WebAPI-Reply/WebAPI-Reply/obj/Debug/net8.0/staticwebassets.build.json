@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Kf1NvlJvq+jj5vJSTIGnnuK1VL9ITllY79zKuPEiKks=",
+  "Source": "WebAPI-Reply",
+  "BasePath": "_content/WebAPI-Reply",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

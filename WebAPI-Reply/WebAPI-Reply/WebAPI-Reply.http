@@ -1,0 +1,15 @@
+﻿@WebAPI-Reply_HostAddress = http://localhost:5217
+@WebAPI_Reply_HostAddress = http://localhost:5217
+
+
+GET {{WebAPI_Reply_HostAddress}}/weatherforecast/
+    Accept: aplication/json
+
+###
+
+GET {{WebAPI-Reply_HotAddress}}/weatherforecast
+
+###
+GET {{WebAPI-Reply_HostAddress}}/api/superhero
+
+###
