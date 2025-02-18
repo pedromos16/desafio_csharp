@@ -10,6 +10,8 @@ Com todas as dependências devidamente instaladas, execute o projeto no botão d
 
 O Swagger vai ser exibido no navegador com caminhos testaveis para a API.
 
+Foi realizado um CRUD. Cada tabela tem suas funções de GET, POST, PUT e DELETE.
+
 Post em Equipes via Insomnia:
 ![alt text](image.png)
 
